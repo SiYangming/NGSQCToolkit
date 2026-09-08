@@ -294,9 +294,9 @@ my $pid = $pm->start and next;
 		printf STAT "$inde %-70s %d\n", "Total number of HQ reads", $hQCount;
 		$tmpPer = sprintf "%0.2f", $hQCount/$seqCount*100;
 		printf STAT "$inde %-70s %s\n", "Percentage of HQ reads", $tmpPer."%";
-		printf STAT "$inde %-70s %d\n", "Total number of bases", $totalBases;
-		printf STAT "$inde %-70s %d\n", "Total number of bases in HQ reads", $totalBasesAfterHQ;
-		printf STAT "$inde %-70s %d\n", "Total number of HQ bases in HQ reads", $totalHQBasesAfterHQ;
+		printf STAT "$inde %-70s %.f\n", "Total number of bases", $totalBases;
+		printf STAT "$inde %-70s %.f\n", "Total number of bases in HQ reads", $totalBasesAfterHQ;
+		printf STAT "$inde %-70s %.f\n", "Total number of HQ bases in HQ reads", $totalHQBasesAfterHQ;
 		$tmpPer = sprintf "%0.2f", $totalHQBasesAfterHQ/$totalBasesAfterHQ*100;
 		printf STAT "$inde %-70s %s\n", "Percentage of HQ bases in HQ reads", $tmpPer."%";
 		if(defined($priAdaLib)) {
@@ -367,9 +367,9 @@ my $pid = $pm->start and next;
 		printf STAT "\t%s\t%d\n", "Total number of HQ reads", $hQCount;
 		$tmpPer = sprintf "%0.2f", $hQCount/$seqCount*100;
 		printf STAT "\t%s\t%s\n", "Percentage of HQ reads", $tmpPer."%";
-		printf STAT "\t%s\t%d\n", "Total number of bases", $totalBases;
-		printf STAT "\t%s\t%d\n", "Total number of bases in HQ reads", $totalBasesAfterHQ;
-		printf STAT "\t%s\t%d\n", "Total number of HQ bases in HQ reads", $totalHQBasesAfterHQ;
+		printf STAT "\t%s\t%.f\n", "Total number of bases", $totalBases;
+		printf STAT "\t%s\t%.f\n", "Total number of bases in HQ reads", $totalBasesAfterHQ;
+		printf STAT "\t%s\t%.f\n", "Total number of HQ bases in HQ reads", $totalHQBasesAfterHQ;
 		$tmpPer = sprintf "%0.2f", $totalHQBasesAfterHQ/$totalBasesAfterHQ*100;
 		printf STAT "\t%s\t%s\n", "Percentage of HQ bases in HQ reads", $tmpPer."%";
 		if(defined($priAdaLib)) {

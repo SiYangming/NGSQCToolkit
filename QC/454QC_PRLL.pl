@@ -430,8 +430,9 @@ foreach my $inpData (@files) {
 			push(@seqArr, $fastaSeq);
 			push(@qualArr, $qualSeq);
 			my @refArr = (\@idArr, \@seqArr, \@qualArr, $id);
-			my $thId = threads->create('passSeq', @refArr);
-			my $refRefArr = $thId->join; #passSeq(@refArr);
+			#my $thId = threads->create('passSeq', @refArr);
+			#my $refRefArr = $thId->join; #passSeq(@refArr);
+			my $refRefArr = passSeq(@refArr);
 			&updateData(@{$refRefArr});
 		close(I);
 		close(Q);
@@ -491,9 +492,9 @@ foreach my $inpData (@files) {
 		printf STAT "$inde %-70s %d\n", "Total number of HQ reads", $hQCount;
 		$tmpPer = sprintf "%0.2f", $hQCount/$seqCount*100;
 		printf STAT "$inde %-70s %s\n", "Percentage of HQ reads", $tmpPer."%";
-		printf STAT "$inde %-70s %d\n", "Total number of bases", $totalBases;
-		printf STAT "$inde %-70s %d\n", "Total number of bases in HQ reads", $totalBasesAfterHQ;
-		printf STAT "$inde %-70s %d\n", "Total number of HQ bases in HQ reads", $totalHQBasesAfterHQ;
+		printf STAT "$inde %-70s %.f\n", "Total number of bases", $totalBases;
+		printf STAT "$inde %-70s %.f\n", "Total number of bases in HQ reads", $totalBasesAfterHQ;
+		printf STAT "$inde %-70s %.f\n", "Total number of HQ bases in HQ reads", $totalHQBasesAfterHQ;
 		$tmpPer = sprintf "%0.2f", $totalHQBasesAfterHQ/$totalBasesAfterHQ*100;
 		printf STAT "$inde %-70s %s\n", "Percentage of HQ bases in HQ reads", $tmpPer."%";
 		if(defined($priAdaLib)) {
@@ -565,9 +566,9 @@ foreach my $inpData (@files) {
 		printf STAT "\t%s\t%d\n", "Total number of HQ reads", $hQCount;
 		$tmpPer = sprintf "%0.2f", $hQCount/$seqCount*100;
 		printf STAT "\t%s\t%s\n", "Percentage of HQ reads", $tmpPer."%";
-		printf STAT "\t%s\t%d\n", "Total number of bases", $totalBases;
-		printf STAT "\t%s\t%d\n", "Total number of bases in HQ reads", $totalBasesAfterHQ;
-		printf STAT "\t%s\t%d\n", "Total number of HQ bases in HQ reads", $totalHQBasesAfterHQ;
+		printf STAT "\t%s\t%.f\n", "Total number of bases", $totalBases;
+		printf STAT "\t%s\t%.f\n", "Total number of bases in HQ reads", $totalBasesAfterHQ;
+		printf STAT "\t%s\t%.f\n", "Total number of HQ bases in HQ reads", $totalHQBasesAfterHQ;
 		$tmpPer = sprintf "%0.2f", $totalHQBasesAfterHQ/$totalBasesAfterHQ*100;
 		printf STAT "\t%s\t%s\n", "Percentage of HQ bases in HQ reads", $tmpPer."%";
 		if(defined($priAdaLib)) {
